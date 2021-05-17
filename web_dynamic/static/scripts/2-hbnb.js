@@ -16,10 +16,12 @@ $(document).ready(function() {
         $('div.amenities h4').text(new_list.join(', '));
     });
 });
-$.getJSON('http://0.0.0.0:5001/api/v1/status/', function(data) {
-    if (data.status === 'OK') {
-        $('#api_status').addClass('available');
-    } else {
-        $('#api_status').removeClass('available');
-    }
-});
+const url = 'http://0.0.0.0:5001/api/v1/status/';
+    $.get(url, function (response) {
+      if (response.status === 'OK') {
+        $('DIV#api_status').addClass('available');
+      } else {
+        $('DIV#api_status').removeClass('available');
+      }
+    });
+  });
